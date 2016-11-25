@@ -32,10 +32,19 @@ body, html{
     clear: both;
 }
 
+.nav>ul>li>h3{
+    color: #3299cc;
+    display: block;
+    width: calc(100% - 40px);
+    height: calc(100% - 20px);
+    padding: 10px 20px;
+}
+
 .nav>ul>li>a{
     color: #dfdfdf;
     text-decoration: none;
-    display: block;
+
+        display: block;
     width: calc(100% - 40px);
     height: calc(100% - 20px);
     padding: 10px 20px;
@@ -43,4 +52,11 @@ body, html{
 
 .nav>ul>li>a:hover{
     background-color: #3299CC;
+}
+
+.nav>h1{
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    color: #3299CC;
 }
