@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+<title><?php echo $this->title; ?></title>
+		
+		<meta charset="utf-8">
+	
+	</head>
+
+	<body>
+	
+		<table>
+			<tr>
+			<?php foreach ($this->description as $value) { ?>
+				<td><?php echo $value; ?></td>
+			<?php }; ?>
+			</tr>
+			<?php foreach ($this->rows as $row) { ?>
+			<tr>
+				<?php foreach ($row as $field) { ?>
+				<td><?php echo $field; ?></td>
+				<?php }; ?>
+			</tr>
+			<?php }; ?>
+		</table>
+	
+	</body>
+
+</html>

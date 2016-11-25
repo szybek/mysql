@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+	
+		<title><?php echo $this->title; ?></title>
+		
+		<meta charset="utf-8">
+	
+	</head>
+
+	<body>
+	
+		<?php foreach ($this->tables as $table) { ?>
+			<p><a href="/table/show/<?php echo $table; ?>"><?php echo $table; ?></a></p>
+		<?php }; ?>
+	
+	</body>
+
+</html>
