@@ -18,7 +18,7 @@ class HomeController extends ActionController
 	{
 		$data = new Database($this->pdo);
 		
-		return array("title" => "Działa", "databases" => $data->get());
+		return array("title" => "MyDatabase", "databases" => $data->get());
 	}
 	
 	public function loginAction()

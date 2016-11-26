@@ -3,18 +3,28 @@
 
 	<head>
 	
-		<title><?php echo $this->title; ?></title>
-		
+        <title><?php echo $this->title; ?></title>
 		<meta charset="utf-8">
-	
+        <link rel="stylesheet" type="text/css" href="/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	</head>
 
 	<body>
-	
-		<?php foreach ($this->databases as $database) { ?>
-		<p><a href="/database/show/<?php echo $database; ?>"><?php echo $database; ?></a></p>
-		<?php }; ?>
-	<h1>Jaca</h1>
+        
+        <div class="nav">
+            <h1>My databse</h1>
+            <ul>
+                <li><h3>Bazy danych:</h3></li>
+                <?php foreach ($this->databases as $database) { ?>
+                <li><a href="/database/show/<?php echo $database; ?>"><?php echo $database; ?></a></li>
+                <?php }; ?>
+            </ul>
+        </div>
+        <div class="conent">
+            <div class="options">
+            </div>
+        </div>
+        
 	</body>
 
 </html>
