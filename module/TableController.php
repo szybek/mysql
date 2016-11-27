@@ -27,4 +27,9 @@ class TableController extends ActionController
 		
 		return array( "title" => $data, "rows" => $table->fetchAll($data), 'description' => $table->describe($data, Table::DESCRIBE_NAME));
 	}
+	
+	public function addAction()
+	{
+		
+	}
 }

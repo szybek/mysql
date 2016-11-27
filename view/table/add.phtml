@@ -2,21 +2,21 @@
 <html>
 
 	<head>
-	
+
 		<title>Dodaj</title>
-	
+
 		<meta charset="utf-8">
-	
+
 	</head>
 
 	<body>
-	
+
 		<?php if (!$this->create) { ?>
 			<?php if (!!$this->reason) {?>
 				<p><?php echo $this->reason; ?></p>
 			<?php } ?>
 			<form action="<?php echo $_SERVER['REQUEST_URI'];?>" method="post">
-				<input type="text" name="database"><br>
+				<input type="text" name="table"><br>
 				<input type="submit" value="rename">
 			</form>
 		<?php } else { ?>
