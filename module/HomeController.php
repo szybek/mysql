@@ -23,15 +23,32 @@ class HomeController extends ActionController
 	
 	public function loginAction()
 	{
-		if(isset($_POST['user']))
-			$_SESSION['user'] = $_POST['user'];
-		if(isset($_POST['password']))
-			$_SESSION['password'] = $_POST['password'];
+		if (!file_exists(__DIR__ . '/../config/config.php')) {
+			if(isset($_POST['user']))
+				$_SESSION['user'] = $_POST['user'];
+			if(isset($_POST['password']))
+				$_SESSION['password'] = $_POST['password'];
 		
-		if (isset($_POST['user']) && isset($_POST['password']))
-			header("Location: http://" . $_SERVER['HTTP_HOST']);
+			if (isset($_POST['user']) && isset($_POST['password'])) {
+				$file = fopen(__DIR__ . '/../config/config.php', 'w');
+				fwrite($file, "<?php\n");
+				fwrite($file, "define('DB_USER', '" . $_POST['user'] . "');\n");
+				fwrite($file, "define('DB_PASSWORD', '" . $_POST['password'] . "');\n");
+				fwrite($file, "define('DB_HOST', 'localhost');\n");
+				fwrite($file, "define('DB_NAME', '');\n");
+				fclose($file);
+				header("Location: http://" . $_SERVER['HTTP_HOST']);
+			}
 			
-		return array('view' => "login");
+			return array('view' => "login");
+		} else {
+			require_once __DIR__ . '/../config/config.php';
+			$_SESSION['user'] = DB_USER;
+			$_SESSION['password'] = DB_PASSWORD;
+			$_SESSION['dbname'] = DB_NAME;
+			
+			header("Location: http://" . $_SERVER['HTTP_HOST']);
+		}
 	}
 	
 	public function dispatch($action, $id)
