@@ -32,4 +32,23 @@ class TableController extends ActionController
 	{
 		
 	}
+	
+	public function deleteAction($name = false)
+	{
+		if (!$name) {
+			return false;
+		} else {
+			$data = new Table($this->pdo);
+			$res = $data->check($name);
+			if (!$res) {
+				return array('delete' => false, 'reason' => 'Nie ma takiej tabeli');
+			} else {
+				if ($data->delete($name)) {
+					return array('delete' => true);
+				} else {
+					return array('delete' => false);
+				}
+			}
+		}
+	}
 }
