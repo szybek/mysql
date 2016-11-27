@@ -30,6 +30,7 @@
 	<body>
 	
 		<table>
+<<<<<<< HEAD
 			<tr>
 			     <?php foreach ($this->description as $value) { ?>
 				    <td><?php echo $value; ?></td>
@@ -37,11 +38,24 @@
 			</tr>
 			     <?php foreach ($this->rows as $row) { ?>
 			<tr>
-				<?php foreach ($row as $field) { ?>
-				<td><?php echo $field; ?></td>
-				<?php }; ?>
-			</tr>
+=======
+			<thead>
+				<tr>
+			     <?php foreach ($this->description as $value) { ?>
+				    <td><?php echo $value; ?></td>
 			     <?php }; ?>
+			     </tr>
+			</thead>
+			<tbody>
+			<?php foreach ($this->rows as $row) { ?>
+				<tr>
+>>>>>>> 4c5a0df1b506d99f44a0089c3e35826415c5e52e
+				<?php foreach ($row as $field) { ?>
+					<td><?php echo $field; ?></td>
+				<?php }; ?>
+				</tr>
+			<?php }; ?>
+			</tbody>
 		</table>
 	
 	</body>

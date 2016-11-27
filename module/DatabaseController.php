@@ -15,13 +15,6 @@ class DatabaseController extends ActionController
 		$this->pdo = $pdo;
 	}
 	
-	/*public function indexAction() 
-	{
-		$data = new Database($this->pdo);
-		
-		return array( "title" => "baza danych" );
-	}*/
-	
 	public function showAction($data = false)
 	{
 		if(!$data)
@@ -36,6 +29,44 @@ class DatabaseController extends ActionController
 		$table = new Table($this->pdo);
 		
 		return array( "title" => $data, "tables" => $table->get() );
+	}
+	
+	public function addAction()
+	{
+		if (isset($_POST['database'])) {
+			
+			$name = $_POST['database'];
+			
+			$data = new Database($this->pdo);
+			$res = $data->check($name);
+			
+			if ($res) {
+				return array('create' => false, 'reason' => 'Ta nazwa już istnieje');
+			} else {
+				$data->add($name);
+				return array('create' => true);
+			}
+			
+		}
+		
+		return array();
+	}
+	
+	public function deleteAction($name = false)
+	{
+		if (!$name) {
+			return false;
+		} else {
+			$data = new Database($this->pdo);
+			$res = $data->change($name);
+			if ($res) {
+				$_SESSION['dbname'] = '';
+				$data->delete($name);
+				return array('delete' => true);
+			} else {
+				return array('delete' => false);
+			}
+		}
 	}
 	
 	/*public function renameAction($data)
