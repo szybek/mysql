@@ -31,17 +31,21 @@
 	
 		<table>
 			<thead>
+				<tr>
 			     <?php foreach ($this->description as $value) { ?>
 				    <td><?php echo $value; ?></td>
 			     <?php }; ?>
+			     </tr>
 			</thead>
-			     <?php foreach ($this->rows as $row) { ?>
-			<tr>
+			<tbody>
+			<?php foreach ($this->rows as $row) { ?>
+				<tr>
 				<?php foreach ($row as $field) { ?>
-				<td><?php echo $field; ?></td>
+					<td><?php echo $field; ?></td>
 				<?php }; ?>
-			</tr>
-			     <?php }; ?>
+				</tr>
+			<?php }; ?>
+			</tbody>
 		</table>
 	
 	</body>
