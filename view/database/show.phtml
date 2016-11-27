@@ -7,6 +7,12 @@
 		<meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="/main.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <style>
+            .nav>ul>li>p{
+                color: #f4f4f4;
+                padding-left: 10px;
+            }
+        </style>
 	</head>
 
 	<body>
@@ -14,10 +20,11 @@
         <div class="nav">
             <h1>MyDatabse</h1>
             <ul>
+                <li><p>Baza: <?php echo $this->title; ?></p></li>
                 <li><h3>Tabele:</h3></li>
-		          <?php foreach ($this->tables as $table) { ?>
-                    <li><a href="/table/show/<?php echo $table; ?>"><?php echo $table; ?></a></li>
-		          <?php }; ?>
+		              <?php foreach ($this->tables as $table) { ?>
+                <li><a href="/table/show/<?php echo $table; ?>"><?php echo $table; ?></a></li>
+		              <?php }; ?>
 	       </ul>
         </div>
         <div class="conent">

@@ -9,10 +9,10 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <style>
             table{
-                margin: 20px;
+                margin: 4px;
             }
             
-            thead{
+            tr:nth-child(1){
                 background-color: #3299CC;
                 text-align: center;
             }
@@ -21,7 +21,7 @@
                 padding: 10px;
             }
             
-            td:nth-child(odd){
+            tr:nth-child(even){
                 background-color: #f2f2f2;
             }
         </style>
@@ -30,6 +30,15 @@
 	<body>
 	
 		<table>
+<<<<<<< HEAD
+			<tr>
+			     <?php foreach ($this->description as $value) { ?>
+				    <td><?php echo $value; ?></td>
+			     <?php }; ?>
+			</tr>
+			     <?php foreach ($this->rows as $row) { ?>
+			<tr>
+=======
 			<thead>
 				<tr>
 			     <?php foreach ($this->description as $value) { ?>
@@ -40,6 +49,7 @@
 			<tbody>
 			<?php foreach ($this->rows as $row) { ?>
 				<tr>
+>>>>>>> 4c5a0df1b506d99f44a0089c3e35826415c5e52e
 				<?php foreach ($row as $field) { ?>
 					<td><?php echo $field; ?></td>
 				<?php }; ?>
