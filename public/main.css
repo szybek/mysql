@@ -9,15 +9,28 @@ body, html{
     height: 100%;
     background-color: #e1e1e1;
 }
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+	background: #1f1f1f;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #1b5580; 
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); 
+}
             
 .nav{
     width: 300px;
     height: 100%;
     background-color: #1f1f1f;
     float: left;
-    /*position: fixed;*/
-    /*height: 100%;*/
-    /*display: block;*/
+    position: fixed;
+    height: 100%;
+    display: block;
     overflow: auto;
     
 }
@@ -48,8 +61,7 @@ body, html{
 .nav>ul>li>a{
     color: #dfdfdf;
     text-decoration: none;
-
-        display: block;
+    display: block;
     width: calc(100% - 40px);
     height: calc(100% - 20px);
     padding: 10px 20px;
