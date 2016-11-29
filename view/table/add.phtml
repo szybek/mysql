@@ -11,17 +11,30 @@
 
 	<body>
 
-		<?php if (!$this->create) { ?>
-			<?php if (!!$this->reason) {?>
-				<p><?php echo $this->reason; ?></p>
-			<?php } ?>
-			<form action="<?php echo $_SERVER['REQUEST_URI'];?>" method="post">
-				<input type="text" name="table"><br>
-				<input type="submit" value="rename">
-			</form>
-		<?php } else { ?>
-		<p>Zrobiono pomyslnie bazę danych</p>
-		<?php } ?>
+		<form action="<?php echo $_SERVER['REQUEST_URI'];?>" method="post">
+			<label>Nazwa tabeli: <input type="text" name="table"></label><br>
+			<table>
+				<thead>
+					<tr>
+						<td>Nazwa</td>
+						<td>Typ</td>
+						<td>Długosć/Wartosci</td>
+						<td>Ustawienia domyslne</td>
+						<td>Metoda porównywania napisów</td>
+						<td>Atrybuty</td>
+						<td>Null</td>
+						<td>Indekx</td>
+						<td>Auto increment</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					
+					</tr>
+				</tbody>
+			</table>
+			<input type="submit" value="add">
+		</form>
 	
 	</body>
 

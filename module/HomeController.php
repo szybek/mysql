@@ -4,6 +4,7 @@ namespace Home;
 
 use Core\ActionController;
 use Model\Database;
+use Model\Configuration;
 
 class HomeController extends ActionController
 {
@@ -18,7 +19,17 @@ class HomeController extends ActionController
 	{
 		$data = new Database($this->pdo);
 		
-		return array("title" => "MyDatabase", "databases" => $data->get());
+		//$config = new Configuration();
+		
+		$databases = $data->get();
+		
+		/*foreach ($config->getHiddenDatabases() as $key => $value) {
+			if (($res = array_search($value, $databases)) >= 0) {
+				unset($databases[$res]);
+			}
+		}*/
+		
+		return array("title" => "MyDatabase", "databases" => $databases);
 	}
 	
 	public function loginAction()

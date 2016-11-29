@@ -25,12 +25,12 @@ class TableController extends ActionController
 		
 		$table = new Table($this->pdo);
 		
-		return array( "title" => $data, "rows" => $table->fetchAll($data), 'description' => $table->describe($data, Table::DESCRIBE_NAME));
+		return array( "title" => $data, "rows" => $table->fetchAll($data), 'description' => $table->describe($data, Table::DESCRIBE_NAME), 'database' => $database->getName(), 'tables' => $table->get());
 	}
 	
 	public function addAction()
 	{
-		
+		return array();
 	}
 	
 	public function deleteAction($name = false)
