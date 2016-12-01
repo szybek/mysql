@@ -7,6 +7,48 @@
 		<meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="/main.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+           $(document).ready(function(){
+               $(".but").click(function(){
+                   $(".slide").slideToggle("slow");
+               });
+           });
+            
+           $(document).ready(function(){
+               $(".but1").click(function(){
+                   $(".slide1").slideToggle("slow");
+               });
+           });
+        </script>
+        
+        <style>
+            .tile{
+                float: left;
+                padding: 0px 20px;
+            }
+            
+            .but, .slide, .but1, .slide1{
+                width: calc(200px - 2px);
+                height: calc(50px - 2px);
+                background-color: #3299cc;
+                border: 1px solid #2188bb;
+                border-radius: 2px;
+            }
+            
+            .but1, .slide1{
+                background-color: #ff3333;
+                border: 1px solid #ee2222;
+            }
+            
+            .but, .but1{
+                line-height: 50px;
+            }
+            
+            .slide, .slide1{
+                display: none;
+            }
+        </style>
 	</head>
 
 	<body>
@@ -22,6 +64,27 @@
         </div>
         <div class="conent">
             <div class="options">
+                
+            <div class="tile">
+                <div class="but"><h3>Dodaj bazę</h3></div>
+                <div class="slide">
+                    <form action="/database/add" method="post">
+                        <input type="text" name="database"><br>
+				        <input type="submit" value="Dodaj">
+			         </form>
+                </div>
+            </div>
+                
+            <div class="tile">
+                <div class="but1"><h3>Usuń bazę</h3></div>
+                <div class="slide1">
+                    <form action="/database/delete" method="post">
+                        <input type="text" name="database"><br>
+				        <input type="submit" value="Usuń">
+			         </form>
+                </div>
+            </div> 
+              
             </div>
         </div>
         
