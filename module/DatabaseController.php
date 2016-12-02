@@ -44,12 +44,12 @@ class DatabaseController extends ActionController
 				return array('create' => false, 'reason' => 'Ta nazwa już istnieje');
 			} else {
 				$data->add($name);
-				return array('create' => true);
+				return array('create' => true, 'name' => $name);
 			}
 			
 		}
 		
-		return array();
+		return false;
 	}
 	
 	public function deleteAction($name = false)
