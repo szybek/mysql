@@ -3,6 +3,8 @@
 		<?php if (!$this->create) { ?>
 			<?php if (!!$this->reason) {?>
 				<p><?php echo $this->reason; ?></p>
+			<?php } else { ?>
+				<p>Baza nie została utworzona</p>
 			<?php } ?>
 		<?php } else { ?>
 		<script>

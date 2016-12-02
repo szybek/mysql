@@ -30,7 +30,10 @@ class Database
 	{
 		try {
 			$this->connection->query('create database ' . $name);
-			return true;
+			if ($this->check($name))
+				return true;
+			else 
+				return false;
 		} catch (\Exception $e) {
 			return false;
 		}

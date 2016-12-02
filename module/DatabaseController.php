@@ -43,8 +43,11 @@ class DatabaseController extends ActionController
 			if ($res) {
 				return array('create' => false, 'reason' => 'Ta nazwa już istnieje');
 			} else {
-				$data->add($name);
-				return array('create' => true, 'name' => $name);
+				$result = $data->add($name);
+				if ($result)
+					return array('create' => true, 'name' => $name);
+				else
+					return array('create' => false);
 			}
 			
 		}
