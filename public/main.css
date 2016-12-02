@@ -27,12 +27,8 @@ body, html{
     width: 300px;
     height: 100%;
     background-color: #1f1f1f;
-    float: left;
-    position: fixed;
-    height: 100%;
     display: block;
     overflow: auto;
-    
 }
 
 .content{
