@@ -35,7 +35,7 @@ class DatabaseController extends ActionController
 	{
 		if (isset($_POST['database'])) {
 			
-			$name = $_POST['database'];
+			$name = strtolower($_POST['database']);
 			
 			$data = new Database($this->pdo);
 			$res = $data->check($name);
