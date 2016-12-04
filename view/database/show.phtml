@@ -16,18 +16,19 @@
 	</head>
 
 	<body>
-        
-        <div class="nav">
-            <h1>MyDatabse</h1>
-            <ul>
-                <li><p>Baza: <?php echo $this->title; ?></p></li>
-                <li><h3>Tabele:</h3></li>
-		              <?php foreach ($this->tables as $table) { ?>
-                <li><a href="/table/show/<?php echo $table; ?>"><?php echo $table; ?></a></li>
-		              <?php }; ?>
-	       </ul>
+        <div class="left_panel">
+            <div class="nav">
+                <h1>MyDatabse</h1>
+                <ul>
+                    <li><p>Baza: <?php echo $this->title; ?></p></li>
+                    <li><h3>Tabele:</h3></li>
+                          <?php foreach ($this->tables as $table) { ?>
+                    <li><a href="/table/show/<?php echo $table; ?>"><?php echo $table; ?></a></li>
+                          <?php }; ?>
+               </ul>
+            </div>
         </div>
-        <div class="conent">
+        <div class="content">
             <div class="options">
             </div>
         </div>
