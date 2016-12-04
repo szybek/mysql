@@ -22,25 +22,6 @@
                 list-style-type: none;
             }
             
-            .base_name{
-                width: 80%;
-                float: left;
-            }
-            
-            .del_but_li{
-                width: 10%;
-                float: left;
-                text-align: right;
-            }
-            
-            .del_but{
-                width: 39px;
-                height: 39px;
-                border: 0px;
-                background-color: #1f1f1f;
-                color: lightcoral;
-            }
-            
             .add{
                 width: calc(100% - 20px);
                 height: calc(60px - 22px);
@@ -49,6 +30,27 @@
                 padding: 10px;
                 clear: both;
             }
+            
+            .base_name a {
+            	/*box-sizing: border-box;*/
+				float: left;
+            }
+            
+            .base_name a:nth-child(1){
+				width: 210px;
+            }
+            
+            .base_name a:nth-child(2){
+				width: 10px;
+				text-align: center;
+            }
+            
+            .base_name a:nth-child(2):hover{
+				background-color:red;
+            }
+            
+            .base_name::after, .base_name::before {display:table;content:"";}
+            .base_name::after {clear:both;}
             
             .namein{
                 width: 200px;
@@ -81,8 +83,10 @@
                 <ul>
                     <li><h3>Bazy danych:</h3></li>
                     <?php foreach ($this->databases as $database) { ?>
-                    <li class="base_name"><a href="/database/show/<?php echo $database; ?>"><?php echo $database; ?></a></li>
-                    <li class="del_but_li"><form action="/database/delete/[$database]" method="post"><input class="del_but" type="submit" value="x"></form></li>
+                    <li class="base_name">
+                    	<a href="/database/show/<?php echo $database; ?>"><?php echo $database; ?></a>
+                    	<a href="/database/delete/<?php echo $database; ?>">x</a>
+                    </li>
                     <?php }; ?>
                 </ul>
                 </div>

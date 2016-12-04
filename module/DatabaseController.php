@@ -61,7 +61,7 @@ class DatabaseController extends ActionController
 			return false;
 		} else {
 			$data = new Database($this->pdo);
-			$res = $data->change($name);
+			$res = $data->check($name);
 			if ($res) {
 				$_SESSION['dbname'] = '';
 				$data->delete($name);

@@ -29,7 +29,7 @@ class Database
 	public function add($name)
 	{
 		try {
-			$this->connection->query('create database ' . $name);
+			$this->connection->query('create database `' . $name . '`');
 			if ($this->check($name))
 				return true;
 			else 
@@ -42,7 +42,7 @@ class Database
 	public function delete($name)
 	{
 		try {
-			$this->connection->query('drop database ' . $name);
+			$this->connection->query('drop database `' . $name . '`');
 			return true;
 		} catch (\Exception $e) {
 			return false;
