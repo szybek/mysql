@@ -4,7 +4,9 @@
 			<?php if (!!$this->reason) {?>
 				<p><?php echo $this->reason; ?></p>
 			<?php } else { ?>
-				<p>Baza nie została utworzona</p>
+				<script>
+                    alert("Podaj poprawną nazwe");
+                </script>
 			<?php } ?>
 		<?php } else { ?>
 		<script>
