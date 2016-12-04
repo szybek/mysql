@@ -71,7 +71,7 @@ body, html{
     padding: 10px 20px;
 }
 
-.nav>ul>li:hover{
+.nav>ul>li.base_name:hover{
     background-color: #3299CC;
 }
 
