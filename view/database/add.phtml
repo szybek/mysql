@@ -1,5 +1,14 @@
-
+<!DOCTYPE HTML>
+<html>
 	
+	<head>
+	
+		<title>tytul</title>
+		
+		<meta charset="utf-8">
+	
+	</head>
+	<body>
 		<?php if (!$this->create) { ?>
 			<?php if (!!$this->reason) {?>
 				<p><?php echo $this->reason; ?></p>
@@ -15,4 +24,5 @@
 		<?php 
 			header("Location: http://" . $_SERVER['HTTP_HOST'] . "/database/show/" . $this->name);
 		} ?>
-	
+    </body>
+</html>

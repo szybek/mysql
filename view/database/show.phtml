@@ -12,6 +12,10 @@
                 color: #f4f4f4;
                 padding-left: 10px;
             }
+            
+            .table_name:hover{
+                background-color: #3299cc;
+            }
         </style>
 	</head>
 
@@ -23,7 +27,7 @@
                     <li><p>Baza: <?php echo $this->title; ?></p></li>
                     <li><h3>Tabele:</h3></li>
                           <?php foreach ($this->tables as $table) { ?>
-                    <li><a href="/table/show/<?php echo $table; ?>"><?php echo $table; ?></a></li>
+                    <li class="table_name"><a href="/table/show/<?php echo $table; ?>"><?php echo $table; ?></a></li>
                           <?php }; ?>
                </ul>
             </div>

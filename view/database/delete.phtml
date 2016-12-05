@@ -12,9 +12,13 @@
 	<body>
 		
 		<?php if ($this->delete) { ?>
-			<p>Bazę danych pomyslnie usunięto</p>
+			<script>
+                alert("Baza usunięta.");
+            </script>
 		<?php } else { ?>
-			<p>Bazę danych nie można usunąć</p>
+			<script>
+                alert("Bazy nie można usunąć.");
+            </script>
 		<?php } ?>
 	
 	</body>
