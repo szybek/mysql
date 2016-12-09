@@ -26,6 +26,7 @@ class Database
 		return $stmt[0];
 	}
 	
+	
 	public function add($name)
 	{
 		try {
