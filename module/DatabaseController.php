@@ -3,6 +3,8 @@
 namespace Database;
 
 use Core\ActionController;
+use Core\Model\ViewModel;
+use Core\Model\JsonModel;
 use Model\Database;
 use Model\Table;
 
@@ -28,7 +30,7 @@ class DatabaseController extends ActionController
 		$database = new Database($this->pdo);
 		$table = new Table($this->pdo);
 		
-		return array( "title" => $data, "tables" => $table->get() );
+		return array( "title" => $data, "tables" => $table->get());
 	}
 	
 	public function addAction()
@@ -41,13 +43,25 @@ class DatabaseController extends ActionController
 			$res = $data->check($name);
 			
 			if ($res) {
-				return array('create' => false, 'reason' => 'Ta nazwa już istnieje');
+				$arr = array('create' => false, 'reason' => 'Ta nazwa już istnieje');
+				if (isset($_POST['ajax']) && $_POST['ajax'] == true)
+					return new JsonModel($arr);
+				else
+					return $arr;
 			} else {
 				$result = $data->add($name);
-				if ($result)
-					return array('create' => true, 'name' => $name);
-				else
-					return array('create' => false);
+				if ($result) {
+					$arr = array('create' => true, 'name' => $name);
+					if (isset($_POST['ajax']) && $_POST['ajax'] == true)
+						return new JsonModel($arr);
+					else
+						return $arr;
+				} else {
+					if (isset($_POST['ajax']) && $_POST['ajax'] == true)
+						return new JsonModel(array('create' => false));
+					else
+						return array('create' => false);
+				}
 			}
 			
 		}
@@ -65,9 +79,15 @@ class DatabaseController extends ActionController
 			if ($res) {
 				$_SESSION['dbname'] = '';
 				$data->delete($name);
-				return array('delete' => true);
+				if (isset($_POST['ajax']) && $_POST['ajax'] == true)
+					return new JsonModel(array('delete' => true, 'name' => $name));
+				else
+					return array('delete' => true);
 			} else {
-				return array('delete' => false);
+				if (isset($_POST['ajax']) && $_POST['ajax'] == true)
+					return new JsonModel(array('delete' => false));
+				else
+					return array('delete' => false);
 			}
 		}
 	}

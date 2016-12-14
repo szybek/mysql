@@ -2,7 +2,8 @@
 
 namespace Bootstrap;
 
-use Core\View;
+use \Core\View;
+use \Core\Model\ViewModel;
 
 session_start();
 
@@ -52,16 +53,32 @@ $res = [];
 
 $res = $core->dispatch($action, $id);
 
-if ($res != 0) {
-	if (!!$res['view']) {
-		$file = $res['view'];
-		unset($res['view']);
+//echo get_class($res);
+if (!is_object($res)) {
+	if ($res != 0) {
+		if (!!$res['view']) {
+			$file = $res['view'];
+			unset($res['view']);
+		} else {
+			$file = $action;
+		}
+		$view = new ViewModel($res);
+		$view->render(strtolower($module), $file);
 	} else {
-		$file = $action;
+		echo "<h1>Strona nie istnieje</h1>";
+		return;
 	}
-	$view = new View($res);
-	$view->render(strtolower($module), $file);
 } else {
-	echo "<h1>Strona nie istnieje</h1>";
-	return;
+	if (get_class($res) == "Core\Model\ViewModel") {
+		if (!!$res->view) {
+			$file = $res->view;
+			unset($res->view);
+		} else {
+			$file = $action;
+		}
+		$view = new ViewModel($res);
+		$view->render(strtolower($module), $file);
+	} else if (get_class($res) == "Core\Model\JsonModel") {
+		$res->render();
+	}
 }

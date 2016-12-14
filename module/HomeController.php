@@ -4,7 +4,8 @@ namespace Home;
 
 use Core\ActionController;
 use Model\Database;
-use Model\Configuration;
+use Core\Model\ViewModel;
+//use Model\Configuration;
 
 class HomeController extends ActionController
 {

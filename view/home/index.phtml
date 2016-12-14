@@ -5,73 +5,12 @@
 	
         <title><?php echo $this->title; ?></title>
 		<meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="/main.css">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <style>
-            .nav{
-                height: calc(100% - 60px);
-            }
-            
-            .left_panel{
-                width: 300px;
-                height: 100%;
-                float: left;
-            }
-            
-            ul{
-                list-style-type: none;
-            }
-            
-            .add{
-                width: calc(100% - 20px);
-                height: calc(60px - 22px);
-                background-color: #1f1f1f;
-                border-top: 2px solid #3299cc;
-                padding: 10px;
-                clear: both;
-            }
-            
-            .base_name a {
-            	/*box-sizing: border-box;*/
-				float: left;
-            }
-            
-            .base_name a:nth-child(1){
-				width: 210px;
-            }
-            
-            .base_name a:nth-child(2){
-				width: 10px;
-				text-align: center;
-            }
-            
-            .base_name a:nth-child(2):hover{
-				background-color:red;
-            }
-            
-            .base_name::after, .base_name::before {display:table;content:"";}
-            .base_name::after {clear:both;}
-            
-            .namein{
-                width: 200px;
-                height: 38px;
-                border: 0px;
-                background-color: #dfdfdf;
-                font-size: 22px;
-                float: left;
-            }
-            
-            #submit{
-                width: 38px;
-                height: 38px;
-                background-color: #666;
-                border: 0px;
-                float: left;
-            }
-            
-
-            
-        </style>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="/js/main.js"></script>
+        
 	</head>
 
 	<body>
@@ -104,6 +43,8 @@
             </div>
         </div>
         
+        <p id="hidden">database</p>
+        
 	</body>
-
+    
 </html>

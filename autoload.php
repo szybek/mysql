@@ -4,6 +4,9 @@ require_once 'core/Controller.php';
 require_once 'core/ActionController.php';
 require_once 'core/View.php';
 
+require_once 'core/ViewModel.php';
+require_once 'core/JsonModel.php';
+
 require_once 'model/Database.php';
 require_once 'model/Table.php';
 require_once 'model/Configuration.php';

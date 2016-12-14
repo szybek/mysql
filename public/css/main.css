@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+            
+body, html{
+    width: 100%;
+    height: 100%;
+    background-color: #e1e1e1;
+    
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+	background: #1f1f1f;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #1b5580; 
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); 
+}
+            
+.left_panel{
+    width: 300px;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+            
+.nav{
+    width: 300px;
+    height: calc(100% - 34px);
+    background-color: #1f1f1f;
+    display: block;
+    overflow: auto;
+}
+
+.content{
+    float: left;
+    width: calc(100% - 300px);
+}
+            
+.options{
+    height: calc(76px - 13px);
+    background-color: #2e2e2e;
+    padding-left: 350px;
+    padding-top: 13px;
+}
+
+.nav>ul>li>h3{
+    color: #3299cc;
+    display: block;
+    width: calc(100% - 40px);
+    height: calc(100% - 20px);
+    padding: 10px 20px;
+}
+
+.nav>ul>li>a{
+    color: #dfdfdf;
+    text-decoration: none;
+    display: block;
+    width: calc(100% - 40px);
+    height: calc(100% - 20px);
+    padding: 10px 20px;
+}
+
+.nav>ul>li.base_name:hover{
+    background-color: #3299CC;
+}
+
+.nav>h1{
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    color: #3299CC;
+}
+
+.add{
+	background-color: #1f1f1f;
+	padding: 5px;
+	clear: both;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+form::after, form::before {
+	display: table;
+	content: "";
+}
+
+form::after {
+	clear: both;
+}
+
+.left_panel{
+    width: 300px;
+    height: 100%;
+    float: left;
+}
+            
+ul{
+    list-style-type: none;
+}
+            
+.base_name a {
+    /*box-sizing: border-box;*/
+    float: left;
+}
+            
+.base_name a:nth-child(1){
+    width: 210px;
+}
+            
+.base_name a:nth-child(2){
+    width: 10px;
+    text-align: center;
+    float: right;
+}
+            
+.base_name a:nth-child(2):hover{
+    background-color:red;
+}
+            
+.base_name::after, .base_name::before {display:table;content:"";}
+.base_name::after {clear:both;}
+            
+.namein{
+    width: 266px;
+    height: 24px;
+    border: 0px;
+    font-size: 22px;
+    float: left;
+    outline: 0;
+    background-color: #1f1f1f;
+    border-bottom: 1px solid gray;
+    padding-left: 10px;
+    color: lightgray;
+    font-size: 14px;
+}
+            
+#submit{
+    width: 24px;
+    height: 24px;
+    background-color: #666;
+    border: 0px;
+    float: left;
+    cursor: pointer;
+}
+
+#hidden {
+    display: none;
+}
