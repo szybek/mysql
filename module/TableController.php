@@ -5,6 +5,7 @@ namespace Table;
 use Core\ActionController;
 use Model\Table;
 use Model\Database;
+use Core\Model\JsonModel;
 
 class TableController extends ActionController 
 {
@@ -41,12 +42,22 @@ class TableController extends ActionController
 			$data = new Table($this->pdo);
 			$res = $data->check($name);
 			if (!$res) {
-				return array('delete' => false, 'reason' => 'Nie ma takiej tabeli');
+				$arr = array('delete' => false, 'reason' => 'Nie ma takiej tabeli');
+				if(isset($_POST['ajax']) && $_POST['ajax'] == true)
+					return new JsonModel($arr);
+				else
+					return $arr;
 			} else {
 				if ($data->delete($name)) {
-					return array('delete' => true);
+					if(isset($_POST['ajax']) && $_POST['ajax'] == true)
+						return new JsonModel(array('delete' => true));
+					else
+						return array('delete' => true);
 				} else {
-					return array('delete' => false);
+					if(isset($_POST['ajax']) && $_POST['ajax'] == true)
+						return new JsonModel(array('delete' => false));
+						else
+							return array('delete' => false);
 				}
 			}
 		}

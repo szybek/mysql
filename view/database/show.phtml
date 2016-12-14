@@ -7,6 +7,10 @@
 		<meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="/css/main.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="/js/main.js"></script>
+        
         <style>
             .nav>ul>li>p{
                 color: #f4f4f4;
@@ -22,9 +26,12 @@
                 <ul>
                     <li><p>Baza: <?php echo $this->title; ?></p></li>
                     <li><h3>Tabele:</h3></li>
-                          <?php foreach ($this->tables as $table) { ?>
-                    <li><a href="/table/show/<?php echo $table; ?>"><?php echo $table; ?></a></li>
-                          <?php }; ?>
+                    <?php foreach ($this->tables as $table) { ?>
+                    <li class="base_name">
+                    	<a href="/table/show/<?php echo $table; ?>"><?php echo $table; ?></a>
+                    	<a href="/table/delete/<?php echo $table; ?>">x</a>
+                    </li>
+                    <?php }; ?>
                </ul>
             </div>
         </div>
@@ -32,6 +39,8 @@
             <div class="options">
             </div>
         </div>
+        
+        <p id="hidden">table</p>
         
 	</body>
 

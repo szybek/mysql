@@ -56,6 +56,33 @@ $(document).ready(function(){
             evt.preventDefault();
         });
         
+    } else if (site == "table") {
+        
+        del.on("click", function(evt){
+            var name = $(this).prev().html();
+            
+            $.ajax({
+                method: "POST",
+                url: "/table/delete/" + name,
+                data: {
+                    ajax: true
+                },
+                success: function(data){
+                    if (data.delete) {
+                        alert("Usunięto tabelę");
+                        location.reload();
+                    } else {
+                        if (!!data.reason)
+                            alert(data.reason)
+                        else
+                            alert("Nie można usunąć tabeli");
+                    }
+                }
+            });
+            
+            evt.preventDefault();
+        });
+        
     }
     
 });
