@@ -1,3 +1,40 @@
+var modal = function(text){
+    this.dialog = document.createElement("dialog");
+    this.text = text;
+};
+
+modal.prototype.show = function(){
+    
+    var nodeT = document.createElement("p");
+    nodeT.appendChild(document.createTextNode(this.text));
+    nodeT.classList.add("dialog-title");
+    
+    var btn   = document.createElement("p");
+    btn.classList.add("dialog-btn");
+    btn.classList.add("dialog-btn__close");
+    btn.appendChild(document.createTextNode("Zamknij"));
+    
+    this.dialog.appendChild(nodeT);
+    this.dialog.appendChild(btn);
+    this.dialog.classList.add("dialog");
+    
+    document.body.appendChild(this.dialog);
+    if (! this.dialog.showModal) {
+        dialogPolyfill.registerDialog(this.dialog);
+    }
+    this.dialog.showModal();
+};
+modal.prototype.close = function(){
+    this.dialog.close();
+    document.body.removeChild(this.dialog);
+    this.dialog = document.createElement("dialog")
+};
+modal.prototype.text = function(text){
+    this.text = text;
+};
+
+var mod = new modal("Dodano bazę danych");
+
 $(document).ready(function(){
     
     var site = $("#hidden").html();
@@ -84,5 +121,14 @@ $(document).ready(function(){
         });
         
     }
+    
+    $(document).delegate(".dialog-btn__close", "click", function(evt){
+        
+        mod.close();
+        
+        evt.preventDefault();
+    });
+    
+    mod.show();
     
 });

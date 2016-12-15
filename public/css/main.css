@@ -30,6 +30,7 @@ body, html{
     height: 100%;
     float: left;
     position: relative;
+    box-shadow: 0px 0px 8px black;
 }
             
 .nav{
@@ -155,4 +156,39 @@ ul{
 
 #hidden {
     display: none;
+}
+
+.dialog {
+    border: 0;
+    min-width: 300px;
+    min-height: 95px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(235, 235, 235);
+    position: relative;
+    box-shadow: -4px 4px 24px rgba(70,70,70,.7);
+}
+
+.dialog-btn {
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+    background-color: rgb(50, 153, 204);
+    padding: 4px 16px;
+    cursor: pointer;
+    border-radius: 2px;
+    box-shadow: 0px 1px 2px rgb(180,180,180);
+}
+
+.dialog-btn:active {
+    background-color: rgb(70,140,170);
+    box-shadow: -2px 3px 6px rgb(180,180,180);
+}
+
+.dialog-title {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 17px;
+    color: slategrey;
 }
